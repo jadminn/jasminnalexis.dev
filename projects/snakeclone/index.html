@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Snake (JavaScript) — Project</title>
+  <meta name="description" content="Classic Snake rebuilt in vanilla JavaScript with a responsive canvas, score tracking, and unlockable color themes.">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <main class="section">
+    <div class="container narrow">
+      <p><a href="/">← Back to Home</a></p>
+
+      <h1>Snake — JavaScript Clone</h1>
+      <p class="muted">HTML • CSS • JavaScript</p>
+
+      <img src="../../assets/img/snake-hero.jpg" alt="Screenshot of the Snake game on a browser canvas" style="width:100%;border-radius:16px;margin:16px 0;">
+
+      <h2>Overview</h2>
+      <p>
+        A modern take on the classic Snake game, written in vanilla JavaScript.
+        Grid-based movement, clean collision logic, score/high-score tracking, and unlockable color themes as you climb.
+      </p>
+
+      <h2>How to Play</h2>
+      <ul>
+        <li>Move with <strong>Arrow Keys</strong> (or WASD)</li>
+        <li>Eat food to grow; avoid walls and your own tail</li>
+        <li>Game speeds up slightly as your score increases</li>
+      </ul>
+
+      <h2>Highlights</h2>
+      <ul>
+        <li>Deterministic tick loop for consistent movement & input buffering</li>
+        <li>Grid coordinate system → simple, readable collision math</li>
+        <li>Pause/reset states; persistent high score via <code>localStorage</code></li>
+        <li>Theme unlocks at score thresholds (color palette shifts)</li>
+      </ul>
+
+      <p style="margin:20px 0;">
+        <a class="btn" href="https://JasminnAlexis.github.io/snake-clone/" target="_blank" rel="noopener">Live</a>
+        <a class="btn ghost" href="https://github.com/JasminnAlexis/snake-clone" target="_blank" rel="noopener">Code</a>
+      </p>
+
+      <h2>Tech Notes</h2>
+      <ul>
+        <li>Canvas rendering with integer grid; one-cell step per tick</li>
+        <li>Fixed timestep loop to avoid speed variance across devices</li>
+        <li>Input queue prevents 180° turn bugs within a single tick</li>
+        <li>Responsive canvas sizing; keyboard focus hint for accessibility</li>
+        <li>all visuals are coded using CSS</li>
+
+      </ul>
+    </div>
+  </main>
+
+  <script src="../../script.js" defer></script>
+</body>
+</html>
