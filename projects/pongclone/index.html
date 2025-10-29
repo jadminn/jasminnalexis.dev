@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pong (JavaScript) — Project</title>
+  <meta name="description" content="A colorful, musical Pong clone written in vanilla JavaScript with 1–2 player modes.">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <main class="section">
+    <div class="container narrow">
+      <p><a href="/">← Back to Home</a></p>
+
+      <h1>Pong — JavaScript Clone</h1>
+      <p class="muted">HTML • CSS • JavaScript</p>
+
+      <!-- Replace this screenshot with your own -->
+      <img src="../../assets/img/pong-hero.jpg" alt="Screenshot of the Pong game running in the browser" style="width:100%;border-radius:16px;margin:16px 0;">
+
+      <h2>Overview</h2>
+      <p>
+        A browser-based Pong remake with colorful visuals and optional background music.
+        Supports <strong>1-player</strong> (AI opponent) and <strong>2-player</strong> modes, written in vanilla JavaScript with a clean, modular structure.
+      </p>
+
+      <h2>How to Play</h2>
+      <ul>
+        <li><strong>1P:</strong> W/S to move</li>
+        <li><strong>2P:</strong> W/S (left) · ↑/↓ (right)</li>
+        <li>Press <em>Play</em> to start (unlocks audio per browser autoplay rules)</li>
+      </ul>
+
+      <h2>Highlights</h2>
+      <ul>
+        <li>Modular game loop + object model (paddles, ball, collision, scoring)</li>
+        <li>Deterministic physics with speed ramp & serve logic</li>
+        <li>Input handling, pause/reset states, and simple AI for 1P mode</li>
+        <li>Audio gated behind user gesture for reliable playback on the web</li>
+      </ul>
+
+      <p style="margin:20px 0;">
+        <!-- Replace GH_USER with your username -->
+        <a class="btn" href="https://JasminnAlexis.github.io/Pong-Clone/" target="_blank" rel="noopener">Live</a>
+        <a class="btn ghost" href="https://github.com/JasminnAlexis/pong-clone" target="_blank" rel="noopener">Code</a>
+      </p>
+
+      <h2>Tech Notes</h2>
+      <ul>
+        <li>Canvas-based rendering; fixed timestep game loop</li>
+        <li>Keyboard events with graceful focus (click canvas once if needed)</li>
+        <li>Audio paths use <code>./sfx/...</code> and lowercase filenames for GitHub Pages</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="../../script.js" defer></script>
+</body>
+</html>
