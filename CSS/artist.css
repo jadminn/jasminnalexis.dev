@@ -164,7 +164,7 @@
   cursor: url("assets/cursor/brush.png") 4 28, crosshair;
 }
 .theme-artist a, .theme-artist button, .theme-artist [role="button"] {
-  cursor: url("assets/cursor/brush.png") 4 28, pointer;
+  cursor: url("/assets/cursor/brush.png") 4 28, pointer;
 }
 .theme-artist input, .theme-artist textarea, .theme-artist select {
   cursor: text;
@@ -177,3 +177,4 @@
   user-select: none;
   transform-origin: center;
 }
+
