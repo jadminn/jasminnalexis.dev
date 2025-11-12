@@ -245,11 +245,12 @@
 
 /* Theme cursor: pen (with sensible fallbacks & I-beam for inputs) */
 .theme-innovator, .theme-innovator *:not(input, textarea, select) {
-  cursor: url("assets/cursor/pen.png") 2 30, crosshair;
+  cursor: url("/assets/cursor/pen.png") 2 30, crosshair;
 }
 .theme-innovator a, .theme-innovator button, .theme-innovator [role="button"] {
-  cursor: url("assets/cursor/pen.png") 2 30, pointer;
+  cursor: url("/assets/cursor/pen.png") 2 30, pointer;
 }
 .theme-innovator input, .theme-innovator textarea, .theme-innovator select {
   cursor: text;
 }
+
