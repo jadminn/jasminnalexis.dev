@@ -1,0 +1,317 @@
+
+/* =========================================
+   Hero (uniform sizing across themes)
+   ========================================= */
+.hero{
+  padding-top:72px; text-align:center;
+  min-height: clamp(var(--hero-h-mobile), 38vh, var(--hero-h-desktop));
+  background: var(--hero-bg);
+  transition: background .45s ease; /* subtle color glide */
+}
+.hero .container{
+  display: grid;
+  justify-items: center;
+  row-gap: var(--hero-gap);
+}
+.hero h1{font-size:40px; margin:0; line-height: 1.1;}
+.hero p{color:var(--muted); margin:0}
+
+/* Buttons with fixed height to avoid layout shifts */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: var(--btn-h);
+  padding: 0 16px;
+  line-height:1;
+  background:var(--brand); color:#fff; border-radius:var(--btn-radius);
+  font-weight:600; border:0; cursor:pointer;
+  transition: transform .12s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.btn:active{ transform: translateY(0); box-shadow:none; }
+.btn:focus-visible{ outline:2px solid currentColor; outline-offset:2px; }
+.btn.ghost{ background:var(--brand-ghost); color:var(--brand); }
+
+/* Compact, low-contrast icon button (Play/Pause) */
+.icon-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:999px;
+  border:1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  opacity:.75;
+  transition: opacity .15s ease, transform .12s ease, box-shadow .2s ease;
+}
+.icon-btn:hover{ opacity:1; transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.icon-btn:active{ transform: translateY(0); box-shadow:none; }
+.icon-btn:focus-visible{ outline:2px solid currentColor; outline-offset:2px; }
+
+/* Make prev/next arrows visually quieter */
+.nav-arrow{
+  font-size:14px;
+  padding:0 12px;
+  opacity:.7;
+  border:1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+}
+.nav-arrow:hover{ opacity:1; }
+
+
+/* =========================================
+   Grids / cards
+   ========================================= */
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+@media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .grid{grid-template-columns:1fr} }
+
+.card{
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:var(--radius); overflow:hidden; color:var(--text);
+}
+.card img{width:100%; height:180px; object-fit:cover; display:block; background:#111}
+.card-body{padding:14px}
+.badge{
+  display:inline-block; margin-left:8px; font-size:.75rem; font-weight:600;
+  padding:2px 8px; border-radius:999px; background:var(--brand-ghost); color:var(--brand);
+}
+.card h3{display:flex; align-items:center; gap:6px;}
+.card p{margin:0 0 10px; color:var(--muted)}
+.card .links{display:flex; gap:12px; flex-wrap:wrap}
+
+/* Compact visual cards */
+.card2{
+  position:relative; height:120px; border-radius:var(--radius);
+  overflow:hidden; background:#111; border:1px solid var(--border);
+  display:flex; align-items:flex-end; justify-content:flex-start; color:#fff;
+}
+.card2 img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter: var(--card2-img-filter);
+  transition: transform .4s ease, filter .4s ease;
+}
+.card2:hover img{ transform: scale(1.05); filter: brightness(.8); }
+.card2 .card-body{
+  position:relative; z-index:2; padding:12px 16px; width:100%;
+  background: var(--card2-overlay);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.card2 h3{ margin:0; font-size:1rem; letter-spacing:.2px; }
+.card2 p{ display:none; }
+.card2 .links{ display:none; }
+@media (max-width:640px){ .card2{ height:160px; } }
+
+.tags{display:flex; gap:8px; flex-wrap:wrap; padding:0; list-style:none}
+.tags li{padding:6px 10px; background:var(--panel); border:1px solid var(--border); border-radius:999px}
+
+.site-footer{
+  padding:40px 0; border-top:1px solid var(--border);
+  text-align:center; color:var(--muted);
+}
+/* =========================================
+   Swap animation (stabilized slots)
+   ========================================= */
+.swap-wrap{
+  position:relative; display:inline-block;
+  min-width:1ch; white-space:nowrap; vertical-align:baseline;
+}
+.swap{ display:inline-block; will-change: transform, opacity; }
+.swap-out{ pointer-events:none; }
+.swap-wrap[data-for="title"] { width: var(--swap-title-w, auto); }
+.swap-wrap[data-for="words"] { width: var(--swap-words-w, auto); }
+
+@media (prefers-reduced-motion: no-preference){
+  .swap-in{ animation:swapIn .35s ease forwards; }
+  .swap-out{ position:absolute; left:0; top:0; animation:swapOut .35s ease forwards; }
+}
+@keyframes swapIn{ from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)} }
+@keyframes swapOut{ from{opacity:1; transform:translateY(0)} to{opacity:0; transform:translateY(-6px)} }
+
+
+/* ---------- Projects pagination layout ---------- */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;                     /* space between elements */
+  margin-top: 24px;
+  flex-wrap: wrap;               /* allows wrapping gracefully on mobile */
+}
+
+.pager-btn {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+
+.pager-btn:hover:not(:disabled) {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.pager-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* center the dots neatly between them */
+.pager-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* optional: tighten layout slightly on small screens */
+@media (max-width: 640px){
+  .pager { gap: 8px; }
+  .pager-btn { padding: 6px 12px; font-size: 0.9rem; }
+}
+
+/* ===== Explore grid: 4 columns on desktop, 2 on tablet, 1 on mobile ===== */
+.grid-explore {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 1000px) {
+  .grid-explore { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-explore { grid-template-columns: 1fr; }
+}
+/* Base */
+.about-panel {
+  background: rgba(26, 15, 18, 0.90);                     /* fallback */
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+}
+
+/* Clean */
+.theme-clean .about-panel {
+  background: #ffffff;                                     /* fallback */
+  background: color-mix(in srgb, var(--panel) 80%, white 20%);
+}
+
+/* Artist */
+.theme-artist .about-panel {
+  background: #ffffff;                                     /* fallback */
+  background: color-mix(in srgb, var(--panel) 85%, #ffffff 25%);
+}
+
+/* Innovator */
+.theme-innovator .about-panel {
+  background: #111111;                                     /* fallback */
+  background: color-mix(in srgb, var(--panel) 85%, #000000 20%);
+}
+/* Fallback first: subtle inner glow if masking isn't supported */
+.theme-innovator .btn--projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 2px rgba(153,179,255,.25);
+}
+
+/* Replace with animated conic ring when supported */
+@supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+  .theme-innovator .btn--projects::before {
+    inset: -2px; z-index: -1;
+    background: conic-gradient(from 0deg,
+      rgba(33,87,255,.0),
+      rgba(33,87,255,.35),
+      rgba(153,179,255,.5),
+      rgba(33,87,255,.35),
+      rgba(33,87,255,.0)
+    );
+    animation: proj-ring-rot 4.5s linear infinite;
+    -mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    padding: 2px;                 /* ring thickness */
+    border-radius: 14px;
+    box-shadow: none;             /* override fallback */
+  }
+}
+
+/* ===== Click splats (shared base) ===== */
+.splat {
+  position: fixed;
+  left: 0; top: 0;
+  width: 72px; height: 72px;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(var(--srot, 0deg)) scale(var(--sscale, 1));
+  opacity: 0;
+  animation: splat-pop 800ms ease-out forwards;
+  will-change: transform, opacity;
+  z-index: 9999;
+}
+
+/* Paint splat (artist): pinky blob */
+.splat--paint {
+  background-image:
+    radial-gradient(circle at 30% 35%, rgba(255,255,255,.28) 0 16%, transparent 17%),
+    radial-gradient(40% 40% at 55% 55%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(closest-side, #be5e7b 0%, #a34c66 70%, #7b3047 100%);
+  border-radius: 46% 54% 44% 56% / 47% 42% 58% 53%;
+  filter: drop-shadow(0 6px 16px rgba(190,94,123,.35));
+}
+
+/* Ink splat (innovator): deep blue/ink */
+.splat--ink {
+  background-image:
+    radial-gradient(circle at 35% 40%, rgba(255,255,255,.18) 0 14%, transparent 15%),
+    radial-gradient(45% 45% at 60% 60%, rgba(255,255,255,.10), transparent 60%),
+    radial-gradient(closest-side, #1a2444 0%, #0f1833 70%, #0a0c18 100%);
+  border-radius: 50% 42% 55% 45% / 48% 56% 44% 52%;
+  filter: drop-shadow(0 8px 20px rgba(10,12,24,.5));
+}
+
+@keyframes splat-pop {
+  0%   { transform: translate(-50%,-50%) rotate(var(--srot,0)) scale(0.65); opacity: 0; }
+  40%  { transform: translate(-50%,-50%) rotate(calc(var(--srot,0) + 4deg)) scale(1.08); opacity: 1; }
+  100% { transform: translate(-50%,-50%) rotate(var(--srot,0)) scale(1); opacity: 0; }
+}
+
+/* Respect reduced motion: smaller scale, faster fade */
+@media (prefers-reduced-motion: reduce) {
+  .splat { animation: splat-pop 400ms linear forwards; }
+}
+/* ===== paint variants (primary colors) ===== */
+.splat--paint.red {
+  background-image:
+    radial-gradient(circle at 30% 35%, rgba(255,255,255,.28) 0 16%, transparent 17%),
+    radial-gradient(40% 40% at 55% 55%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(closest-side, #d32b2b 0%, #b12424 70%, #801919 100%);
+  filter: drop-shadow(0 6px 16px rgba(211,43,43,.35));
+}
+.splat--paint.yellow {
+  background-image:
+    radial-gradient(circle at 30% 35%, rgba(255,255,255,.28) 0 16%, transparent 17%),
+    radial-gradient(40% 40% at 55% 55%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(closest-side, #f5cd3b 0%, #e5b70d 70%, #b38a00 100%);
+  filter: drop-shadow(0 6px 16px rgba(229,183,13,.35));
+}
+.splat--paint.blue {
+  background-image:
+    radial-gradient(circle at 30% 35%, rgba(255,255,255,.28) 0 16%, transparent 17%),
+    radial-gradient(40% 40% at 55% 55%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(closest-side, #3c64f2 0%, #2845c7 70%, #1a2d8f 100%);
+  filter: drop-shadow(0 6px 16px rgba(60,100,242,.35));
+}
+/* Use SVG for Artist splats (the container still animates) */
+.theme-artist .splat { background: none; }
+
+/* SVG fills & soft shadows per color */
+.splat-svg { width: 100%; height: 100%; display: block; }
+.splat--paint.red    .splat-svg { filter: drop-shadow(0 6px 16px rgba(211,43,43,.35)); }
+.splat--paint.yellow .splat-svg { filter: drop-shadow(0 6px 16px rgba(229,183,13,.35)); }
+.splat--paint.blue   .splat-svg { filter: drop-shadow(0 6px 16px rgba(60,100,242,.35)); }

@@ -1,0 +1,255 @@
+
+/* =========================================
+   THEME — INNOVATOR (Dark Lab)
+   ========================================= */
+.theme-innovator{
+  /* slightly lighter base + your gradient */
+  --bg:#3b2d39;
+  --panel:#3b2d39;
+  --text:#f2f4f8;
+  --muted:#b6c0d0;
+
+  --header-bg: rgba(26, 20, 30, 0.72);
+  --hero-bg: transparent;
+
+  --card2-img-filter: brightness(.9) contrast(1.05);
+  --card2-overlay: #3b2d39;
+
+  --app-bg:
+    radial-gradient(1000px 600px at 20% -10%, rgba(138, 19, 66, 0.4), #8d5a62 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(255,222,173,.35), #dfa7b0 60%),
+    linear-gradient(180deg, #fff5f8, #ffeef6 60%, #ffe9f3);
+
+  color-scheme: dark;
+}
+/* Overlay fade toward bottom for Innovator theme */
+.theme-innovator::after {
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1; /* stays behind all content */
+  background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.6) 100%);
+}
+
+.theme-innovator .card{
+  transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.theme-innovator .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(33,87,255,.12);
+  border-color: rgba(255,255,255,.12);
+}
+.theme-innovator .btn{
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(2px);
+}
+.theme-innovator .btn:focus-visible{
+  outline:2px solid #2157ff; outline-offset:2px;
+}
+
+/* Rotating words: per-chunk styling that won't wreck layout */
+.hero-words { display: inline-block; }
+
+/* Innovator accents */
+.theme-innovator .u-underline { text-decoration: underline; text-underline-offset: 2px; }
+.theme-innovator .i-italic   { font-style: italic; }
+.theme-innovator .b-bold     { font-weight: 800; }
+
+/* Optional “stand-out” font tweaks that don’t change size much */
+:root{
+  --hero-accent-font: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+.theme-innovator .u-underline,
+.theme-innovator .i-italic,
+.theme-innovator .b-bold {
+  font-family: var(--hero-accent-font);
+  letter-spacing: .2px;     /* tiny, keeps width stable */
+}
+
+/* Make sure hero text keeps consistent line-height */
+.hero h1, .hero p { line-height: 1.2; }
+
+
+/* =========================================
+   INNOVATOR — Neo-circuit Projects button
+   ========================================= */
+.theme-innovator .btn--projects{
+  position: relative;
+  height: var(--btn-h);
+  padding: 0 46px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.16);
+  overflow: hidden;
+  letter-spacing: .6px;
+  isolation: isolate;              /* keep effects inside */
+  transition: transform .18s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+
+/* Animated gradient border ring (drawn as a 2px ring) */
+.theme-innovator .btn--projects::before{
+  content:"";
+  position:absolute; inset:-2px; z-index:-1;
+  background: conic-gradient(from 0deg,
+    rgba(33,87,255,.0),
+    rgba(33,87,255,.35),
+    rgba(153,179,255,.5),
+    rgba(33,87,255,.35),
+    rgba(33,87,255,.0)
+  );
+  animation: proj-ring-rot 4.5s linear infinite;
+  /* carve the ring so only the border shows */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 2px;               /* ring thickness */
+  border-radius: 14px;
+}
+
+/* Subtle scan line on hover */
+.theme-innovator .btn--projects::after{
+  content:"";
+  position:absolute; inset:-120% -40%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.12) 50%, transparent 70%);
+  transform: translateX(-30%) rotate(12deg);
+  opacity: 0;
+  transition: opacity .25s ease, transform .9s ease;
+}
+
+/* Corner “L” brackets */
+.theme-innovator .btn--projects .br{
+  pointer-events:none;
+}
+.theme-innovator .btn--projects .br::before,
+.theme-innovator .btn--projects .br::after{
+  content:""; position:absolute; width:12px; height:12px;
+  border: 2px solid rgba(153,179,255,.55);
+}
+.theme-innovator .btn--projects .br::before{ /* top-left */
+  top:6px; left:8px; border-right:none; border-bottom:none; border-radius:4px 0 0 0;
+}
+.theme-innovator .btn--projects .br::after{  /* bottom-right */
+  bottom:6px; right:8px; border-left:none; border-top:none; border-radius:0 0 4px 0;
+}
+
+/* Label */
+.theme-innovator .btn--projects .label{
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: #e9eeff;
+}
+
+/* Hover/active */
+.theme-innovator .btn--projects:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 18px rgba(33,87,255,.18),
+    inset 0 0 18px rgba(33,87,255,.12);
+  border-color: rgba(255,255,255,.25);
+  background: rgba(255,255,255,.05);
+}
+.theme-innovator .btn--projects:hover::after{
+  opacity: 1;
+  transform: translateX(35%) rotate(12deg);
+}
+.theme-innovator .btn--projects:active{
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* respects reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .theme-innovator .btn--projects::before{ animation: none; }
+  .theme-innovator .btn--projects:hover::after{ transform: none; }
+}
+
+@keyframes proj-ring-rot{
+  to{ transform: rotate(360deg); }
+}
+/* =========================================
+   INNOVATOR — Refined glass About button
+   ========================================= */
+.theme-innovator .btn--about {
+  position: relative;
+  height: var(--btn-h);
+  padding: 0 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e9eeff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  letter-spacing: 0.4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+}
+
+/* glowing animated border gradient */
+.theme-innovator .btn--about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg,
+    rgba(153, 179, 255, 0.5),
+    rgba(33, 87, 255, 0.6),
+    rgba(153, 179, 255, 0.5));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  animation: about-glow 6s linear infinite;
+}
+
+/* soft hover shimmer */
+.theme-innovator .btn--about::after {
+  content: "";
+  position: absolute;
+  inset: -50% -20%;
+  background: linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+  transform: translateX(-80%) rotate(12deg);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.8s ease;
+}
+
+/* Hover effects */
+.theme-innovator .btn--about:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.07);
+  box-shadow:
+    0 8px 18px rgba(33,87,255,0.18),
+    inset 0 0 12px rgba(33,87,255,0.15);
+}
+.theme-innovator .btn--about:hover::after {
+  opacity: 1;
+  transform: translateX(60%) rotate(12deg);
+}
+
+/* Subtle animation of gradient border */
+@keyframes about-glow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Theme cursor: pen (with sensible fallbacks & I-beam for inputs) */
+.theme-innovator, .theme-innovator *:not(input, textarea, select) {
+  cursor: url("assets/cursor/pen.png") 2 30, crosshair;
+}
+.theme-innovator a, .theme-innovator button, .theme-innovator [role="button"] {
+  cursor: url("assets/cursor/pen.png") 2 30, pointer;
+}
+.theme-innovator input, .theme-innovator textarea, .theme-innovator select {
+  cursor: text;
+}

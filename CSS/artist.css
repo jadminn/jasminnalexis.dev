@@ -1,0 +1,179 @@
+
+/* =========================================
+   THEME — ARTIST (Pastel Pink Light)
+   ========================================= */
+.theme-artist{
+  --bg:#dfa7b0;
+  --panel:#adbbcc;
+  --text:#be5e7b;      /* plum */
+  --muted:#696b4c;
+  --brand:#be5e7b;
+  --brand-ghost:#ffe77e;
+  --border: rgba(43,27,34,.08);
+
+  --app-bg:
+    radial-gradient(1000px 600px at 20% -10%, rgba(255,170,204,.40), #dfa7b0 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(255,222,173,.35), #dfa7b0 60%),
+    linear-gradient(180deg, #fff5f8, #ffeef6 60%, #ffe9f3);
+  --header-bg: #adbbcc;
+  --hero-bg: #dfa7b0;
+
+  --card2-img-filter: brightness(.9) contrast(1.05);
+  --card2-overlay: #ffe77e;
+
+  color-scheme: light;
+}
+
+/* Card2 text uses hero plum */
+.theme-artist .card2{ color: var(--text); }
+.theme-artist .card2 h3,
+.theme-artist .card2 .links a{ color: inherit; }
+
+/* PROJECTS = splattier paint blob */
+.theme-artist .btn--projects{
+  height: var(--btn-h);
+  line-height: 1;
+  padding: 0 26px;
+  border-radius: 0;
+  min-width: 150px;
+  transform-origin: center;
+  -webkit-mask: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 100'>\
+    <path d='M20 55c8-24 40-35 64-30 15 3 29-10 47-9 26 2 29 22 49 25 27 4 43-9 54 9 11 17-7 41-30 44-26 3-45-15-68-11-12 2-22 15-40 15-16 0-26-12-38-17C32 77 10 76 20 55Z\
+             M100 10c6 3 9 10 5 16-3 5-12 4-14-2-2-6 2-14 9-14Z\
+             M230 22c5 2 8 8 5 12-2 3-7 3-10 0-2-4 1-10 5-12Z\
+             M55 85c3 2 3 7 0 9-3 3-9 1-10-3-2-5 5-8 10-6Z'/>\
+  </svg>") center / 110% 110% no-repeat;
+          mask: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 100'>\
+    <path d='M20 55c8-24 40-35 64-30 15 3 29-10 47-9 26 2 29 22 49 25 27 4 43-9 54 9 11 17-7 41-30 44-26 3-45-15-68-11-12 2-22 15-40 15-16 0-26-12-38-17C32 77 10 76 20 55Z\
+             M100 10c6 3 9 10 5 16-3 5-12 4-14-2-2-6 2-14 9-14Z\
+             M230 22c5 2 8 8 5 12-2 3-7 3-10 0-2-4 1-10 5-12Z\
+             M55 85c3 2 3 7 0 9-3 3-9 1-10-3-2-5 5-8 10-6Z'/>\
+  </svg>") center / 110% 110% no-repeat;
+  transition: transform .15s ease, box-shadow .25s ease;
+}
+.theme-artist .btn--projects:hover{
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 10px 30px rgba(255,122,184,.35);
+  background: var(--brand-ghost);
+  color:#be5e7b;
+}
+
+/* ABOUT ME = full arrow (current style) */
+.theme-artist .btn--about{
+  height: var(--btn-h);
+  line-height: 1;
+  padding: 0 36px 0 20px;
+  background: var(--brand-ghost);
+  color: var(--brand);
+  border: 2px solid var(--bg);
+  font-weight: 600;
+  letter-spacing: .3px;
+  position: relative;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%, 8% 50%);
+  transition: transform .15s ease, background .25s ease, color .25s ease;
+}
+.theme-artist .btn--about:hover{
+  background: var(--brand);
+  color:#fff;
+  transform: translateX(3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.15);
+}
+
+@supports not ((-webkit-mask: none) or (mask: none)){
+  .theme-artist .btn--projects{ border-radius: 18px; }
+}
+/* ---------- Fancy word treatments (Artist) ---------- */
+
+/* BEAUTIFUL: black -> ROYGBV -> white gradient text */
+.word-gradient{
+  background: linear-gradient(
+    90deg,
+    #000 0%,
+    #ff0000 15%,
+    #ff7f00 30%,
+    #ffff00 45%,
+    #00a000 60%,
+    #0066ff 75%,
+    #4b0082 87%,
+    #8a2be2 93%,
+    #fff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;           /* shows the gradient */
+  font-weight: 700;             /* subtle punch */
+}
+
+/* CREATIVE: gentle bob/wave (no layout shift) */
+.word-bob{
+  display: inline-block;        /* so transform doesn't affect siblings */
+  animation: bob 1.6s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes bob{
+  0%   { transform: translateY(0)    rotate(0deg); }
+  25%  { transform: translateY(-2px) rotate(-1deg); }
+  50%  { transform: translateY(0)    rotate(0deg); }
+  75%  { transform: translateY(2px)  rotate(1deg); }
+  100% { transform: translateY(0)    rotate(0deg); }
+}
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .word-bob{ animation: none; }
+}
+
+/* FUN: playful font stack + a touch of weight */
+.word-fun{
+  display:inline-block;
+  position:relative;
+  top:-1px;                       /* lift a touch to avoid overlap */
+  margin-left:2px;                /* breathing room from commas */
+  font-family: "Baloo 2", "Fredoka One", "Pacifico",
+               "Comic Neue", "Marker Felt", "Chalkboard SE", cursive;
+  font-weight:900;
+  font-size:1.05em;               /* slightly larger but compact */
+  letter-spacing:0.4px;
+  transform:rotate(-1deg);        /* playful tilt */
+  color:#6d3b51;                  /* matches plum text tone */
+  text-shadow:1px 1px 2px rgba(255,255,255,0.25),
+              -1px -1px 2px rgba(0,0,0,0.15);
+  transition:transform .25s ease, text-shadow .25s ease;
+}
+.word-fun:hover{
+  transform:rotate(2deg) scale(1.08);
+  text-shadow:0 0 6px rgba(255,192,203,0.6);
+}
+/* Add spacing between static text and changing words */
+#hero-words{
+  margin-left: -0.2em;       /* small gap between "interfaces" and the dynamic words */
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* keep it consistent across themes */
+.theme-artist #hero-words,
+.theme-clean #hero-words,
+.theme-innovator #hero-words {
+  margin-left: -0.2em;
+}
+
+/* Theme cursor: paintbrush (with sensible fallbacks & I-beam for inputs) */
+.theme-artist, .theme-artist *:not(input, textarea, select) {
+  cursor: url("assets/cursor/brush.png") 4 28, crosshair;
+}
+.theme-artist a, .theme-artist button, .theme-artist [role="button"] {
+  cursor: url("assets/cursor/brush.png") 4 28, pointer;
+}
+.theme-artist input, .theme-artist textarea, .theme-artist select {
+  cursor: text;
+}
+.splat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  transform-origin: center;
+}

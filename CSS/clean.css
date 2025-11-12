@@ -1,0 +1,169 @@
+
+
+/* ============================
+   CLEAN THEME — light, airy
+   ============================ */
+.theme-clean{
+  /* Palette: soft slate + airy blue with a rose hint */
+  --bg:#f7f9fc;
+  --panel:#ffffff;
+  --text:#0f172a;
+  --muted:#5b677a;
+
+  --brand:#258f5e;          /* primary accent (accessible on white) */
+  --brand-ghost:#eaf1ff;    /* light pill background */
+  --brand-rose:#e9b4c8;     /* tiny rose hint for shadows/details */
+
+  --border: rgba(15,23,42,.08);
+  --shadow-lg: 0 16px 30px rgba(15,23,42,.08);
+
+  /* Gentle canvas gradient */
+  --app-bg:
+    radial-gradient(900px 520px at 15% -10%, rgba(43,106,230,.06), transparent 60%),
+    radial-gradient(800px 480px at 85% 0%, rgba(233,180,200,.08), transparent 60%),
+    linear-gradient(180deg, #f7f9fc 0%, #f3f6fb 60%, #eef2f7 100%);
+
+  --header-bg: rgba(255,255,255,.75);
+  --hero-bg: transparent;
+
+  color-scheme: light;
+}
+
+/* Header: frosted white */
+.theme-clean .site-header{
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+}
+
+/* Links */
+.theme-clean a{ color: var(--brand); }
+.theme-clean a:hover{ text-decoration: underline; }
+
+/* Buttons: sleek capsules, soft elevation, strong focus */
+.theme-clean .btn{
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: linear-gradient(180deg, #fff, #f4f7fb);
+  color: var(--text);
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 6px 16px rgba(15,23,42,.06);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.theme-clean .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 1px 0 #922c4a inset, 0 12px 24px rgba(15,23,42,.12);
+}
+.theme-clean .btn:active{
+  transform: translateY(0);
+  box-shadow: 0 1px 0 #922c4a inset, 0 4px 10px rgba(15,23,42,.08);
+}
+.theme-clean .btn:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--brand) 35%, transparent);
+  outline-offset: 2px;
+}
+
+/* Primary call-to-action (projects) */
+.theme-clean .btn--projects{
+  background: linear-gradient(180deg, #5c8f5c, #4d724c);
+  color: #fff;
+  border-color: #922c4a;
+  box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 10px 22px rgba(43,106,230,.25);
+  letter-spacing: .2px;
+  text-transform: none;
+}
+.theme-clean .btn--projects:hover{
+  background: linear-gradient(180deg, #922c4a, #661f34);
+  box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 14px 28px rgba(43,106,230,.32);
+}
+
+/* Secondary (about) */
+.theme-clean .btn--about{
+  background: var(--brand-ghost);
+  color: var(--brand);
+  border-color: rgba(43,106,230,.25);
+  font-weight: 600;
+}
+.theme-clean .btn--about:hover{
+  background: #922c4a;
+  color:#fff;
+  border-color: #6e2138;
+}
+
+/* Nav arrows & icon buttons */
+.theme-clean .nav-arrow,
+.theme-clean .icon-btn{
+  background:#fff;
+  color: var(--text);
+  border:1px solid var(--border);
+  box-shadow: 0 6px 14px rgba(15,23,42,.06);
+}
+.theme-clean .icon-btn:hover,
+.theme-clean .nav-arrow:hover{ transform: translateY(-1px); }
+
+/* Cards: airy elevation, crisp borders */
+.theme-clean .card{
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(15,23,42,.06);
+}
+.theme-clean .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(15,23,42,.10);
+  border-color: rgba(15,23,42,.12);
+}
+.theme-clean .card p{ color: var(--muted); }
+
+/* Visual grid cards (Explore) */
+.theme-clean .card2{
+  border:1px solid var(--border);
+}
+.theme-clean .card2 .card-body{
+  background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.92));
+  color: var(--text);
+}
+
+/* About panel: soft white sheet with delicate rose glow */
+.theme-clean .about-panel{
+  background: #fff; /* fallback for any color-mix warnings */
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.9) inset,
+    0 20px 40px rgba(15,23,42,.08),
+    0 0 0 1px rgba(15,23,42,.06);
+  border-color: rgba(15,23,42,.08);
+}
+
+/* Pager */
+.theme-clean .pager-btn{
+  background:#fff;
+  color:var(--text);
+  border:1px solid var(--border);
+}
+.theme-clean .pager-btn:hover:not(:disabled){
+  background: var(--brand);
+  color:#fff;
+}
+
+/* Footer */
+.theme-clean .site-footer{
+  background: transparent;
+  color: var(--muted);
+}
+
+/* Optional: tiny animated sheen on primary button (reduced-motion safe) */
+@media (prefers-reduced-motion: no-preference){
+  .theme-clean .btn--projects{
+    position: relative; overflow: hidden;
+  }
+  .theme-clean .btn--projects::after{
+    content:""; position:absolute; inset:-120% -40%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.3) 50%, transparent 70%);
+    transform: translateX(-30%) rotate(12deg); opacity:.0;
+    transition: opacity .25s ease, transform .9s ease;
+  }
+  .theme-clean .btn--projects:hover::after{
+    opacity:.9; transform: translateX(35%) rotate(12deg);
+  }
+}

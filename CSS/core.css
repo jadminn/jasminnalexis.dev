@@ -1,0 +1,132 @@
+/* =========================================
+   Core tokens + base (Dark default)
+   ========================================= */
+:root{
+  --bg:#0b0a0d;           /* very deep black-cherry */
+  --panel:#1a0f12;        /* subtle tinted panel */
+  --text:#f6e9eb;         /* warm off-white/pinkish */
+  --muted:#cea4ad;        /* muted dusty rose */
+  --brand:#bb99a7;        /* elegant pink accent */
+  --brand-ghost:#2a0f17;  /* shadowed maroon for ghost buttons */
+
+  /* UI tokens */
+  --border: rgba(255,255,255,.06);
+  --radius:16px;
+  --max:1100px;
+  --btn-radius:10px;
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.25);
+
+  /* backgrounds */
+  --app-bg: linear-gradient(180deg,var(--bg),#0a0a0a);
+  --header-bg: rgba(16,19,25,.7);
+
+  /* imagery */
+  --card2-img-filter: brightness(0.65) contrast(1.1);
+  --card2-overlay: rgba(0,0,0,.35);
+
+  /* motion */
+  --hero-fade: 220ms ease;
+
+  /* hero bg (per-theme) */
+  --hero-bg: transparent;
+
+  /* Hero sizing + buttons */
+  --hero-h-mobile: 260px;
+  --hero-h-desktop: 300px;
+  --hero-gap: 14px;
+  --btn-h: 44px;
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569;
+    --brand:#2157ff; --brand-ghost:#e8efff;
+    --border: rgba(15,23,42,.08);
+    --app-bg: linear-gradient(180deg,var(--bg),#eef2f7);
+    --header-bg: rgba(255,255,255,.7);
+    --card2-img-filter: brightness(0.9) contrast(1.05);
+    --card2-overlay: rgba(255,255,255,.6);
+  }
+}
+
+/* =========================================
+   Base layout / components (theme-agnostic)
+   ========================================= */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+body{
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+  color:var(--text);
+  background: var(--app-bg);
+  transition: background 420ms ease, color 240ms ease;
+}
+
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:var(--max); margin:0 auto; padding:0 20px}
+.section{padding:64px 0}
+.narrow{max-width:760px; margin:0 auto}
+
+.site-header{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter:saturate(180%) blur(8px);
+  -webkit-backdrop-filter:saturate(180%) blur(8px);
+  background: var(--header-bg);
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; padding:12px 20px;
+}
+.brand{font-weight:700; letter-spacing:.2px}
+.site-nav{display:flex; gap:16px; align-items:center}
+.site-nav .cta{
+  padding:8px 14px; background:var(--brand); color:#fff; border-radius:999px;
+}
+.nav-toggle{display:none; background:none; border:0; color:var(--text); font-size:20px}
+
+@media (max-width:800px){
+  .nav-toggle{display:block}
+  .site-nav{
+    position:absolute; right:20px; top:56px;
+    flex-direction:column; gap:12px; padding:12px;
+    background:var(--panel); border:1px solid var(--border); border-radius:12px; display:none;
+  }
+  .site-nav.open{display:flex}
+}
+/* =========================================
+   ABOUT PANEL — match card colors per theme
+   ========================================= */
+
+/* Base (default / dark mode) */
+.about-panel {
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+  color: var(--text);
+  backdrop-filter: blur(6px) saturate(160%);
+  -webkit-backdrop-filter: blur(6px) saturate(160%);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 32px 24px;
+  max-width: 780px;
+  margin: 0 auto;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+/* FRONT-END DEVELOPER — light clean card */
+.theme-clean .about-panel {
+  background: color-mix(in srgb, var(--panel) 80%, white 20%);
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* ARTIST — pastel blue panel tint */
+.theme-artist .about-panel {
+  background: color-mix(in srgb, var(--panel) 85%, #ffffff 25%);
+  border-color: rgba(0,0,0,0.06);
+  box-shadow: 0 8px 26px rgba(94, 61, 79, 0.25);
+}
+
+/* INNOVATOR — dark plum/gray card */
+.theme-innovator .about-panel {
+  background: color-mix(in srgb, var(--panel) 85%, #000000 20%);
+  border-color: rgba(255,255,255,0.08);
+}
