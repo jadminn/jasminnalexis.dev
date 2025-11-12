@@ -1,18 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Jasminn Alexis — Front-End Developer</title>
-  <meta name="description" content="Front-end developer building clean, accessible web apps. HTML • CSS • JavaScript.">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="assets/icons/favicon.svg">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jasminn Alexis — Portfolio Website</title>
+  <meta name="description" content="Front-end developer building clean, accessible web apps. HTML • CSS • JavaScript." />
+  <link rel="icon" href="assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="/CSS/core.css" />
+  <link rel="stylesheet" href="/CSS/styles.css" />
+    <link rel="stylesheet" href="/CSS/clean.css" />
+  <link rel="stylesheet" href="/CSS/artist.css" />
+  <link rel="stylesheet" href="/CSS/innovator.css" />
 </head>
 <body>
+  <!-- Add one of: theme-artist | theme-clean | theme-innovator on <body> to switch themes -->
+
+  <!-- Header / Primary Nav -->
   <header class="site-header">
-    <a class="brand" href="#">Jasminn Alexis</a>
-    <button class="nav-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
-    <nav class="site-nav" data-nav>
+    <a class="brand" href="#home">Jasminn Alexis</a>
+
+    <button class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Open menu">
+      ☰
+    </button>
+
+    <nav id="site-nav" class="site-nav" data-nav aria-label="Primary">
       <a href="#home">Home</a>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
@@ -21,167 +35,313 @@
   </header>
 
   <main id="home">
-    <section class="hero section">
+    <!-- HERO -->
+    <section class="hero section" aria-labelledby="hero-heading">
       <div class="container">
-        <h1>Front-End Developer</h1>
-        <p>I build clean, fast, accessible interfaces with HTML, CSS, and JavaScript.</p>
+        <h1 id="hero-heading">
+          <span class="swap-wrap" data-for="title">
+            <span id="hero-title" class="swap" aria-live="polite">Front-End Developer</span>
+          </span>
+        </h1>
+
+        <p class="muted">
+          I build
+          <span class="swap-wrap" data-for="words">
+            <span id="hero-words" class="swap" aria-live="polite">clean, fast, accessible</span>
+          </span>
+          interfaces with HTML, CSS, and JavaScript.
+        </p>
+
         <div class="hero-actions">
-          <a class="btn" href="#projects">See Projects</a>
-          <a class="btn ghost" href="#about">About Me</a>
+          <a class="btn btn--projects" href="#projects">See Projects</a>
+
+          <a class="btn btn--about" href="#about">
+            <span class="label">About Me</span>
+            <span class="chev" aria-hidden="true"><i></i><i></i><i></i></span>
+          </a>
+        </div>
+
+        <div class="hero-controls" role="group" aria-label="Style rotation controls">
+          <button class="btn ghost nav-arrow" id="prevHero" aria-label="Previous style">◀</button>
+
+          <button class="icon-btn"
+                  id="autoBtn"
+                  aria-pressed="true"
+                  aria-label="Pause rotation"
+                  title="Pause">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" rx="1"></rect>
+              <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+            </svg>
+          </button>
+
+          <button class="btn ghost nav-arrow" id="nextHero" aria-label="Next style">▶</button>
         </div>
       </div>
     </section>
-    <!-- Current Projects -->
-<section id="current-projects" class="section">
-  <div class="container">
-    <h2>Current Projects</h2>
-    <div class="grid">
 
-      <!-- Pilates Card Game (Godot) -->
-      <article class="card">
-        <img src="assets/img/cardGameThumbnail.png" alt="Godot card game concept art">
-        <div class="card-body">
-          <h3>Rogue-Like Card Game (Godot)</h3>
-          <p>Collaboration project refactoring core gameplay in GDScript and creating custom art assets for a 2D rogue-like card game developed in Godot.</p>
-          <div class="links">
-            <a href="https://godotengine.org/" target="_blank" rel="noopener">Engine</a>
-          </div>
+    <!-- CURRENT PROJECTS (curated) -->
+    <section id="current-projects" class="section" aria-labelledby="current-projects-heading">
+      <div class="container">
+        <h2 id="portfolio-categories">Explore</h2>
+        <div class="grid grid-explore">
+          <article class="card2">
+            <img src="assets/img/placeHolderThumbnail.png" alt="Creative work card link" />
+            <div class="card-body">
+              <h3>Web Projects</h3>
+              <p>web based projects</p>
+              <div class="links">
+                <a href="">Link</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card2">
+            <img src="assets/img/placeHolderThumbnail.png" alt="Creative work card link" />
+            <div class="card-body">
+              <h3>Creative Work</h3>
+              <p>Digital artwork, Media, Fine art</p>
+              <div class="links">
+                <a href="">Link</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card2">
+            <img src="assets/img/placeHolderThumbnail.png" alt="Creative work card link" />
+            <div class="card-body">
+              <h3>Games</h3>
+              <p>Game dev projects</p>
+              <div class="links">
+                <a href="">Link</a>
+              </div>
+            </div>
+          </article>
+          <article class="card2">
+            <img src="assets/img/placeHolderThumbnail.png" alt="Creative work card link" />
+            <div class="card-body">
+              <h3><a href="https://www.jasminnalexis.dev/certs">Certificates</a></h3>
+            </div>
+          </article>
         </div>
-      </article>
-<!-- Symbiospacces  -->
-      <article class="card">
-        <img src="assets/img/placeHolderThumbnail.png" alt="Symbiospaces site preview">
-        <div class="card-body">
-          <h3>SymbioSpaces</h3>
-          <p>Coming Soon</p>
-          <div class="links">
-          </div>
+        <h2 id="current-projects-heading">Current Projects</h2>
+
+        <div class="grid">
+          <!-- Rogue-like Card Game -->
+          <article class="card">
+            <img src="assets/img/cardGameThumbnail.png" alt="Godot card game concept art" />
+            <div class="card-body">
+              <h3>Rogue-Like Card Game (Godot)</h3>
+              <p>Collaboration project refactoring core gameplay in GDScript and creating custom art assets for a 2D rogue-like card game developed in Godot.</p>
+              <div class="links">
+                <a href="https://godotengine.org/" target="_blank" rel="noopener">Engine</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- SymbioSpaces -->
+          <article class="card">
+            <img src="assets/img/placeHolderThumbnail.png" alt="Symbiospaces site preview" />
+            <div class="card-body">
+              <h3>SymbioSpaces</h3>
+              <p>Coming Soon</p>
+              <div class="links"></div>
+            </div>
+          </article>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
-    
-<section id="projects" class="section">
-  <div class="container">
-    <h2>Recent Projects</h2>
-    <div class="grid">
-      <!-- Spark Community Solutions (Wix) -->
-      <article class="card">
-        <img src="assets/img/sparkThumbnail.png" alt="Spark Community Solutions Wix site preview">
-        <div class="card-body">
-          <h3>Spark Community Solutions (Wix)</h3>
-          <p>Updating and restyling existing site content, improving accessibility, and building a new three-column testimonials section on the home page.</p>
-          <div class="links">
-            <a href="https://sparkcommunitysolutions.net" target="_blank" rel="noopener">Live</a>
-            <a href="projects/spark/index.html">Case Study</a>
-          </div>
-        </div>
-      </article>
-      <!-- FBCNH (Wix) -->
-      <article class="card">
-        <img src="assets/img/fbcThumbnail.png" alt="Fusion Behavioral Care homepage on desktop">
-        <div class="card-body">
-          <h3>Fusion Behavioral Care (Wix)</h3>
-          <p>Mental health practice site: IA, mobile optimization, accessibility pass, SEO basics.</p>
-          <div class="links">
-            <a href="projects/fbcnh/index.html">Case Study</a>
-            <a href="https://fbcnh.com" target="_blank" rel="noopener">Live</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Mother's Meadow (WordPress) -->
-      <article class="card">
-        <img src="assets/img/PYOThumbnail.png" alt="Mother's Meadow blueberry farm WordPress site">
-        <div class="card-body">
-          <h3>Mother’s Meadow (WordPress)</h3>
-          <p>Theme customization, layout system, image optimization, and mobile-first polish.</p>
-          <div class="links">
-            <a href="projects/mothersmeadow/index.html">Case Study</a>
-            <a href="https://pickyourownberries.com" target="_blank" rel="noopener">Live</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Pong (JS) -->
-      <article class="card">
-        <img src="assets/img/pongThumbnail.png" alt="Colorful musical Pong clone UI">
-        <div class="card-body">
-          <h3>Pong Clone (JS)</h3>
-          <p>A colorful musical Pong clone; play solo or head-to-head.</p>
-          <div class="links">
-            <a href="projects/pongclone/index.html">Details</a>
-            <a href="https://github.com/JasminnAlexis/pong-clone" target="_blank" rel="noopener">Code</a>
-            <a href="https://jasminnalexis.github.io/Pong-Clone/" target="_blank" rel="noopener">Live</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Snake (JS) -->
-      <article class="card">
-        <img src="assets/img/snakeThumbnail.png" alt="JavaScript Snake game screenshot">
-        <div class="card-body">
-          <h3>Snake (JS)</h3>
-          <p>Unlock new colors as you hit highscores. Grid logic, input handling, scoring.</p>
-          <div class="links">
-            <a href="projects/snakeclone/index.html">Details</a>
-            <a href="https://github.com/JasminnAlexis/snake-clone" target="_blank" rel="noopener">Code</a>
-            <a href="https://jasminnalexis.github.io/snake-clone/" target="_blank" rel="noopener">Live</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-    <section id="about" class="section">
-      <div class="container narrow">
- <h2>About Me</h2>
-<p>
-  Hello World! 
-</p>
-<p>
-  My name is Jasminn Alexis, Creator, Designer and Founder of Symbiospaces LLC.
-</p>
-
-<p>
-  I consider myself a Jazz of all trades. I spent my formative years employed at an apple orchard in Chester, NH. 
-  I got a bachelors degree of science in environmental science with a minor in biology, which took me to Africa to study sharks,
-  and costa rica to study ecosystems. Now I work part-time as a medical assistant and part-time contracting as Website Support
-  while I grow my business.
-</p>
-
-<p>
-  I've created this site to showcase my work for others, as well as keep track of everything I'm doing for myself.
-  Here you will find my current and past client projects, personal creations, artwork, and certificates. This
-  site will continue to change and grow over the next few months as I take onand document  more projects. If you would
-  like to work together please do not hesitate to reach out.
-</p>
-<p>
-  Happy Coding!
-</p>
-<p>
-  ~ Jasminn Alexis
-</p>
-
-
-        <ul class="tags">
-  <li>HTML</li><li>CSS</li><li>JavaScript</li>
-  <li>Wix</li><li>WordPress</li><li>UI Design</li>
-  <li>Responsive Web</li><li>Accessibility</li>
-  <li>IT Systems</li><li>Problem Solving</li>
-</ul>
-
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- RECENT PROJECTS (script-driven pagination) -->
+    <section id="projects" class="section" aria-labelledby="recent-projects-heading">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-header__title">
+            <h2 id="recent-projects-heading">Recent Projects</h2>
+            <p class="muted">Selected work — page <span id="proj-page">1</span> of <span id="proj-pages">1</span></p>
+          </div>
+
+          <nav class="pager" aria-label="Projects pagination">
+            <button class="pager-btn" id="proj-prev" aria-label="Previous page" disabled>‹ Prev</button>
+            <div id="proj-dots" class="pager-dots" aria-hidden="true"></div>
+            <button class="pager-btn" id="proj-next" aria-label="Next page" disabled>Next ›</button>
+          </nav>
+        </header>
+
+        <!-- JS will render cards here (6 per page) -->
+        <div id="projects-grid" class="grid"></div>
+
+        <!-- Accessible fallback if JS disabled -->
+        <noscript>
+          <div class="grid">
+            <article class="card">
+              <img src="assets/img/sparkThumbnail.png" alt="Spark Community Solutions Wix site preview" />
+              <div class="card-body">
+                <h3>Spark Community Solutions (Wix)</h3>
+                <p>Updating and restyling existing site content, improving accessibility, and building a new three-column testimonials section on the home page.</p>
+                <div class="links">
+                  <a href="https://sparkcommunitysolutions.net" target="_blank" rel="noopener">Live</a>
+                  <a href="projects/spark/index.html">Case Study</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/img/fbcThumbnail.png" alt="Fusion Behavioral Care homepage on desktop" />
+              <div class="card-body">
+                <h3>Fusion Behavioral Care (Wix)</h3>
+                <p>Mental health practice site: IA, mobile optimization, accessibility pass, SEO basics.</p>
+                <div class="links">
+                  <a href="projects/fbcnh/index.html">Case Study</a>
+                  <a href="https://fbcnh.com" target="_blank" rel="noopener">Live</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/img/PYOThumbnail.png" alt="Mother's Meadow blueberry farm WordPress site" />
+              <div class="card-body">
+                <h3>Mother’s Meadow (WordPress)</h3>
+                <p>Theme customization, layout system, image optimization, and mobile-first polish.</p>
+                <div class="links">
+                  <a href="projects/mothersmeadow/index.html">Case Study</a>
+                  <a href="https://pickyourownberries.com" target="_blank" rel="noopener">Live</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/img/pongThumbnail.png" alt="Colorful musical Pong clone UI" />
+              <div class="card-body">
+                <h3>Pong Clone (JS)</h3>
+                <p>A colorful musical Pong clone; play solo or head-to-head.</p>
+                <div class="links">
+                  <a href="projects/pongclone/index.html">Details</a>
+                  <a href="https://github.com/JasminnAlexis/pong-clone" target="_blank" rel="noopener">Code</a>
+                  <a href="https://jasminnalexis.github.io/Pong-Clone/" target="_blank" rel="noopener">Live</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img src="assets/img/snakeThumbnail.png" alt="JavaScript Snake game screenshot" />
+              <div class="card-body">
+                <h3>Snake (JS)</h3>
+                <p>Unlock new colors as you hit highscores. Grid logic, input handling, scoring.</p>
+                <div class="links">
+                  <a href="projects/snakeclone/index.html">Details</a>
+                  <a href="https://github.com/JasminnAlexis/snake-clone" target="_blank" rel="noopener">Code</a>
+                  <a href="https://jasminnalexis.github.io/snake-clone/" target="_blank" rel="noopener">Live</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </noscript>
+
+        <!-- JSON data for pagination (script.js will read this) -->
+        <script type="application/json" id="projects-data">
+        {
+          "items": [
+            {
+              "title": "Spark Community Solutions (Wix)",
+              "img": "assets/img/sparkThumbnail.png",
+              "alt": "Spark Community Solutions Wix site preview",
+              "blurb": "Updating and restyling existing site content, improving accessibility, and building a new three-column testimonials section on the home page.",
+              "links": [
+                {"label": "Live", "href": "https://sparkcommunitysolutions.net", "external": true},
+                {"label": "Case Study", "href": "projects/spark/index.html"}
+              ]
+            },
+            {
+              "title": "Fusion Behavioral Care (Wix)",
+              "img": "assets/img/fbcThumbnail.png",
+              "alt": "Fusion Behavioral Care homepage on desktop",
+              "blurb": "Mental health practice site: IA, mobile optimization, accessibility pass, SEO basics.",
+              "links": [
+                {"label": "Case Study", "href": "projects/fbcnh/index.html"},
+                {"label": "Live", "href": "https://fbcnh.com", "external": true}
+              ]
+            },
+            {
+              "title": "Mother’s Meadow (WordPress)",
+              "img": "assets/img/PYOThumbnail.png",
+              "alt": "Mother's Meadow blueberry farm WordPress site",
+              "blurb": "Theme customization, layout system, image optimization, and mobile-first polish.",
+              "links": [
+                {"label": "Case Study", "href": "projects/mothersmeadow/index.html"},
+                {"label": "Live", "href": "https://pickyourownberries.com", "external": true}
+              ]
+            },
+            {
+              "title": "Pong Clone (JS)",
+              "img": "assets/img/pongThumbnail.png",
+              "alt": "Colorful musical Pong clone UI",
+              "blurb": "A colorful musical Pong clone; play solo or head-to-head.",
+              "links": [
+                {"label": "Details", "href": "projects/pongclone/index.html"},
+                {"label": "Code", "href": "https://github.com/JasminnAlexis/pong-clone", "external": true},
+                {"label": "Live", "href": "https://jasminnalexis.github.io/Pong-Clone/", "external": true}
+              ]
+            },
+            {
+              "title": "Snake (JS)",
+              "img": "assets/img/snakeThumbnail.png",
+              "alt": "JavaScript Snake game screenshot",
+              "blurb": "Unlock new colors as you hit highscores. Grid logic, input handling, scoring.",
+              "links": [
+                {"label": "Details", "href": "projects/snakeclone/index.html"},
+                {"label": "Code", "href": "https://github.com/JasminnAlexis/snake-clone", "external": true},
+                {"label": "Live", "href": "https://jasminnalexis.github.io/snake-clone/", "external": true}
+              ]
+            }
+          ]
+        }
+        </script>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-panel">
+          <h2 id="about-heading">About Me</h2>
+
+          <p>Hello World!</p>
+          <p>My name is Jasminn Alexis, Creator, Designer and Founder of Symbiospaces LLC.</p>
+
+          <p>
+            I consider myself a Jazz of all trades. I spent my formative years employed at an apple orchard in Chester, NH.
+            I got a bachelors degree of science in environmental science with a minor in biology, which took me to Africa to study sharks,
+            and Costa Rica to study ecosystems. Now I work part-time as a medical assistant and part-time contracting as Website Support
+            while I grow my business.
+          </p>
+
+          <p>
+            I've created this site to showcase my work for others, as well as keep track of everything I'm doing for myself.
+            Here you will find my current and past client projects, personal creations, artwork, and certificates. This
+            site will continue to change and grow over the next few months as I take on and document more projects. If you would
+            like to work together please do not hesitate to reach out.
+          </p>
+
+          <p>Happy Coding!</p>
+          <p>~ Jasminn Alexis</p>
+
+          <ul class="tags">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            <li>Wix</li><li>WordPress</li><li>UI Design</li>
+            <li>Responsive Web</li><li>Accessibility</li>
+            <li>IT Systems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
       <div class="container narrow">
-        <h2>Contact</h2>
+        <h2 id="contact-heading">Contact</h2>
         <p>Send me a message:</p>
-        <p>jasminn@jasminnalexis.dev</p>
+        <p><a href="mailto:jasminn@jasminnalexis.dev">jasminn@jasminnalexis.dev</a></p>
         <p>
           <a href="https://github.com/jadminn" target="_blank" rel="noopener">GitHub</a> ·
           <a href="https://www.linkedin.com/in/jasminn-garcia-9b45b6177/" target="_blank" rel="noopener">LinkedIn</a>
@@ -196,11 +356,7 @@
     </div>
   </footer>
 
+  <!-- Your main script; it can read #projects-data and render/paginate -->
   <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
-
-
