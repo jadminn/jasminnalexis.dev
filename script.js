@@ -383,7 +383,7 @@ function makeSplat(x, y) {
   const splatImg = document.createElement('img');
   const totalSplats = 3; // number of images you have
   const imgIndex = 1 + Math.floor(Math.random() * totalSplats);
-  splatImg.src = `assets/splats/splat${imgIndex}.png`;
+  splatImg.src = `assets/splats/splat${imgIndex}.PNG`;
   splatImg.alt = "";
   splatImg.className = "splat-img";
   splatImg.draggable = false;
@@ -437,3 +437,4 @@ function makeSplat(x, y) {
     }
   });
 })();
+
