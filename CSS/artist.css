@@ -161,7 +161,7 @@
 
 /* Theme cursor: paintbrush (with sensible fallbacks & I-beam for inputs) */
 .theme-artist, .theme-artist *:not(input, textarea, select) {
-  cursor: url("assets/cursor/brush.png") 4 28, crosshair;
+  cursor: url("/assets/cursor/brush.png") 4 28, crosshair;
 }
 .theme-artist a, .theme-artist button, .theme-artist [role="button"] {
   cursor: url("/assets/cursor/brush.png") 4 28, pointer;
@@ -177,4 +177,5 @@
   user-select: none;
   transform-origin: center;
 }
+
 
